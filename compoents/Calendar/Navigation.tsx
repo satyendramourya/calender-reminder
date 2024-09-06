@@ -1,7 +1,6 @@
 import { getUserLocale } from 'get-user-locale';
 
 import {
-	getCenturyLabel,
 	getDecadeLabel,
 	getBeginNext,
 	// getBeginNext2,
@@ -131,8 +130,6 @@ export default function Navigation({
 	function renderLabel(date: Date) {
 		const label = (() => {
 			switch (view) {
-				case 'century':
-					return getCenturyLabel(locale, formatYear, date);
 				case 'decade':
 					return getDecadeLabel(locale, formatYear, date);
 				case 'year':

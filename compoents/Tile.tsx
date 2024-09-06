@@ -63,7 +63,7 @@ const Tile = (props: TileProps): React.ReactElement => {
 
 	return (
 		<Button
-			variant={date.toDateString() === new Date().toDateString() ? 'secondary' : 'ghost'}
+			variant={date.toDateString() === new Date().toDateString() ? 'today' : 'ghost'}
 			className={clsx(classes, tileClassName)}
 			disabled={
 				(minDate && minDateTransform(minDate) > date) ||

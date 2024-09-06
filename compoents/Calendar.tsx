@@ -35,7 +35,7 @@ import Navigation from './Calendar/Navigation';
 import YearView from './YearView';
 import DecadeView from './DecadeView';
 
-const allViews = ['century', 'decade', 'year', 'month'] as const;
+const allViews = ['decade', 'year', 'month'] as const;
 const allValueTypes = ['decade', 'year', 'month', 'day'] as const;
 
 const defaultMinDate = new Date();
@@ -338,7 +338,7 @@ const Calendar: React.ForwardRefExoticComponent<CalendarProps & React.RefAttribu
 			maxDate = defaultMaxDate,
 			maxDetail = 'month',
 			minDate = defaultMinDate,
-			minDetail = 'century',
+			minDetail = 'decade',
 			navigationAriaLabel,
 			navigationAriaLive,
 			navigationLabel,
@@ -349,7 +349,6 @@ const Calendar: React.ForwardRefExoticComponent<CalendarProps & React.RefAttribu
 			onActiveStartDateChange,
 			onChange: onChangeProps,
 			onClickDay,
-			onClickDecade,
 			onClickMonth,
 			onClickWeekNumber,
 			onClickYear,
@@ -481,8 +480,6 @@ const Calendar: React.ForwardRefExoticComponent<CalendarProps & React.RefAttribu
 			(value: Date, event: React.MouseEvent<HTMLButtonElement>) => {
 				const callback = (() => {
 					switch (view) {
-						case 'century':
-							return onClickDecade;
 						case 'decade':
 							return onClickYear;
 						case 'year':
@@ -496,7 +493,7 @@ const Calendar: React.ForwardRefExoticComponent<CalendarProps & React.RefAttribu
 
 				if (callback) callback(value, event);
 			},
-			[onClickDay, onClickDecade, onClickMonth, onClickYear, view],
+			[onClickDay, onClickMonth, onClickYear, view],
 		);
 
 		const drillDown = useCallback(

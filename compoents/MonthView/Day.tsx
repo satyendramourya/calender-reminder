@@ -7,6 +7,7 @@ import { isWeekend } from '@/utils/dates';
 import { getDayEnd, getDayStart } from '@wojtekmaj/date-utils';
 
 const className = 'react-calendar__month-view__days__day';
+const style: React.CSSProperties = {};
 
 type DayProps = {
 	classes: string[];
@@ -41,7 +42,12 @@ const Day = ({
 	}
 
 	if (isWeekend(date, calendarType)) {
-		classesProps.push(`${className}--weekend`);
+		// classesProps.push(`${className}--weekend`);
+		style.backgroundColor = 'red';
+		style.color = 'white';
+		style.borderRadius = '50%';
+		style.padding = '1rem';
+		style.width = '2rem';
 	}
 
 	if (date.getMonth() !== currentMonthIndex) {
@@ -50,7 +56,7 @@ const Day = ({
 
 	return (
 		<Tile
-			style={{ margin: '0.5%' }}
+			style={{ ...style }}
 			{...otherProps}
 			formatAbbr={formatLongDate}
 			maxDateTransform={getDayEnd}

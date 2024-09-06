@@ -2,10 +2,7 @@ import {
     getYear,
     getMonth as getMonthIndex,
     getCenturyStart,
-    getPreviousCenturyStart,
-    getNextCenturyStart,
-    getCenturyEnd,
-    getPreviousCenturyEnd,
+
     getCenturyRange,
     getDecadeStart,
     getPreviousDecadeStart,
@@ -158,8 +155,7 @@ export function getWeekNumber(
  */
 export function getBegin(rangeType: RangeType, date: Date): Date {
     switch (rangeType) {
-        case 'century':
-            return getCenturyStart(date);
+
         case 'decade':
             return getDecadeStart(date);
         case 'year':
@@ -182,8 +178,7 @@ export function getBegin(rangeType: RangeType, date: Date): Date {
  */
 export function getBeginPrevious(rangeType: RangeType, date: Date): Date {
     switch (rangeType) {
-        case 'century':
-            return getPreviousCenturyStart(date);
+
         case 'decade':
             return getPreviousDecadeStart(date);
         case 'year':
@@ -204,8 +199,7 @@ export function getBeginPrevious(rangeType: RangeType, date: Date): Date {
  */
 export function getBeginNext(rangeType: RangeType, date: Date): Date {
     switch (rangeType) {
-        case 'century':
-            return getNextCenturyStart(date);
+
         case 'decade':
             return getNextDecadeStart(date);
         case 'year':
@@ -252,8 +246,7 @@ export function getBeginNext2(rangeType: RangeType, date: Date): Date {
  */
 export function getEnd(rangeType: RangeType, date: Date): Date {
     switch (rangeType) {
-        case 'century':
-            return getCenturyEnd(date);
+
         case 'decade':
             return getDecadeEnd(date);
         case 'year':
@@ -276,8 +269,7 @@ export function getEnd(rangeType: RangeType, date: Date): Date {
  */
 export function getEndPrevious(rangeType: RangeType, date: Date): Date {
     switch (rangeType) {
-        case 'century':
-            return getPreviousCenturyEnd(date);
+
         case 'decade':
             return getPreviousDecadeEnd(date);
         case 'year':
@@ -311,8 +303,7 @@ export function getEndPrevious2(rangeType: RangeType, date: Date): Date {
  */
 export function getRange(rangeType: RangeType, date: Date): [Date, Date] {
     switch (rangeType) {
-        case 'century':
-            return getCenturyRange(date);
+
         case 'decade':
             return getDecadeRange(date);
         case 'year':
