@@ -1,5 +1,5 @@
 'use client';
-import Calendar from '@/compoents/Calendar';
+import Calendar from '@/components/Calendar';
 import { Value } from '@/utils/types';
 import { useState } from 'react';
 
@@ -10,6 +10,14 @@ import { Trash2 } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 
+/**
+ * Represents the Home component.
+ *
+ * This component displays a calendar and allows users to add reminders for specific dates.
+ * Reminders can include a note and a time.
+ *
+ * @returns The rendered Home component.
+ */
 export default function Home() {
 	const [selectedDate, setSelectedDate] = useState<Value>(null);
 	const [note, setNote] = useState('');
