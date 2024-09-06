@@ -146,6 +146,26 @@ export function getBeginOfWeek(
  * console.log(wee/**
  * Others
  */
+export function getWeekNumber(
+    date: Date,
+    calendarType: CalendarType = CALENDAR_TYPES.ISO_8601,
+): number {
+    const calendarTypeForWeekNumber =
+        calendarType === CALENDAR_TYPES.GREGORY ? CALENDAR_TYPES.GREGORY : CALENDAR_TYPES.ISO_8601;
+    const beginOfWeek = getBeginOfWeek(date, calendarType);
+    let year = getYear(date) + 1;
+    let dayInWeekOne: Date;
+    let beginOfFirstWeek: Date;
+
+    // Look for the first week one that does not come after a given date
+    do {
+        dayInWeekOne = new Date(year, 0, calendarTypeForWeekNumber === CALENDAR_TYPES.ISO_8601 ? 4 : 1);
+        beginOfFirstWeek = getBeginOfWeek(dayInWeekOne, calendarType);
+        year -= 1;
+    } while (date < beginOfFirstWeek);
+
+    return Math.round((beginOfWeek.getTime() - beginOfFirstWeek.getTime()) / (8.64e7 * 7)) + 1;
+}
 
 /**
  * Returns the beginning of a given range.
