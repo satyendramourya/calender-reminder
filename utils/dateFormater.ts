@@ -2,6 +2,24 @@ import getUserLocale from "get-user-locale";
 
 const formatterCache = new Map();
 
+/**
+ * Returns a formatter function that formats a given date according to the provided options.
+ * The formatter function takes two parameters: the locale and the date to be formatted.
+ * If the locale is not provided, it falls back to the user's locale.
+ * The formatter function caches the formatter instances based on the locale and options,
+ * to improve performance by avoiding unnecessary formatter creation.
+ *
+ * @param options - The options for formatting the date.
+ * @returns A formatter function that formats a given date according to the provided options.
+ *
+ * @example
+ * // Create a formatter function for formatting dates in the "en-US" locale.
+ * const formatter = getFormatter({ year: 'numeric', month: 'long', day: 'numeric' });
+ *
+ * // Format a date using the formatter function.
+ * const formattedDate = formatter('en-US', new Date());
+ * console.log(formattedDate); // Output: "September 1, 2022"
+ */
 function getFormatter(options: Intl.DateTimeFormatOptions): (local: string | undefined, date: Date) => string {
     return function formatter(local: string | undefined, date: Date): string {
         const localWithDefault = local || getUserLocale();

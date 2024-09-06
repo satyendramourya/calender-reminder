@@ -12,6 +12,12 @@ type MonthsProps = {
 } & Omit<React.ComponentProps<typeof TileGroup>, 'dateTransform' | 'dateType' | 'end' | 'renderTile' | 'start'> &
 	Omit<React.ComponentProps<typeof Month>, 'classes' | 'date'>;
 
+/**
+ * Renders a year view with months.
+ *
+ * @param props - The component props.
+ * @returns The rendered React element.
+ */
 export default function Months(props: MonthsProps): React.ReactElement {
 	const { activeStartDate, hover, value, valueType, ...otherProps } = props;
 	const start = 0;

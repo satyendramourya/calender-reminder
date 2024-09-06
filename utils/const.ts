@@ -7,6 +7,18 @@ export const CALENDAR_TYPES = {
     ISO_8601: 'iso8601',
 } as const;
 
+/**
+ * Represents a mapping of calendar types to their corresponding locales.
+ * @remarks
+ * The `CALENDAR_TYPE_LOCALES` object is used to store the supported locales for each calendar type.
+ * Each calendar type is represented as a key in the object, and the corresponding value is an array of locale strings.
+ * 
+ * @example
+ * ```typescript
+ * const supportedLocales = CALENDAR_TYPE_LOCALES.gregory;
+ * // supportedLocales: ['en-CA', 'en-US', 'es-AR', ...]
+ * ```
+ */
 export const CALENDAR_TYPE_LOCALES: Partial<Record<CalendarType, string[]>> = {
     gregory: [
         'en-CA',

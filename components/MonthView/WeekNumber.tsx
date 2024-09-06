@@ -18,6 +18,10 @@ type WeekNumberProps<T = OnClickWeekNumberFunc | undefined> = (T extends OnClick
 	weekNumber: number;
 };
 
+/**
+ * Represents a component that displays a week number.
+ * @component
+ */
 const WeekNumber = (props: WeekNumberProps) => {
 	const { onClickWeekNumber, weekNumber } = props;
 

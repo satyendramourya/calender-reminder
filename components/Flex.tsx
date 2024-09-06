@@ -14,6 +14,22 @@ function toPercent(num: number): string {
 	return `${num}%`;
 }
 
+/**
+ * A flexible container component that arranges its children in a grid-like layout.
+ *
+ * @component
+ * @example
+ * ```tsx
+ * <Flex direction="row" wrap={true} cols={3}>
+ *   <div>Child 1</div>
+ *   <div>Child 2</div>
+ *   <div>Child 3</div>
+ *   <div>Child 4</div>
+ *   <div>Child 5</div>
+ *   <div>Child 6</div>
+ * </Flex>
+ * ```
+ */
 const Flex = ({
 	children,
 	className,
@@ -51,8 +67,6 @@ const Flex = ({
 						flexGrow: '0',
 						overflow: 'hidden',
 						alignSelf: 'center',
-						// marginLeft: marginInlineStart != null ? `${marginInlineStart}` : '',
-						// marginInlineStart: marginInlineStart != null ? marginInlineStart.toString() : '',
 						marginInlineEnd: '0',
 					} as React.CSSProperties,
 				});

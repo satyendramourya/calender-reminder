@@ -57,6 +57,26 @@ type NavigationProps = {
 	views: string[];
 };
 
+/**
+ * Renders the navigation component for the calendar.
+ *
+ * @param activeStartDate - The active start date of the calendar.
+ * @param drillUp - Callback function to drill up to the previous view.
+ * @param formatMonthYear - Optional function to format the month and year.
+ * @param formatYear - Optional function to format the year.
+ * @param locale - The locale to use for formatting.
+ * @param maxDate - The maximum selectable date.
+ * @param minDate - The minimum selectable date.
+ * @param navigationAriaLabel - The ARIA label for the navigation component.
+ * @param navigationLabel - Optional function to customize the navigation label.
+ * @param nextLabel - The label for the next button.
+ * @param prevLabel - The label for the previous button.
+ * @param setActiveStartDate - Callback function to set the active start date.
+ * @param showDoubleView - Flag to indicate whether to show the double view.
+ * @param view - The current view of the calendar.
+ * @param views - The available views of the calendar.
+ * @returns The rendered navigation component.
+ */
 export default function Navigation({
 	activeStartDate,
 	drillUp,

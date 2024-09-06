@@ -14,6 +14,13 @@ type DaysProps = {
 } & Omit<React.ComponentProps<typeof TileGroup>, 'dateTransform' | 'dateType' | 'end' | 'renderTile' | 'start'> &
 	Omit<React.ComponentProps<typeof Day>, 'classes' | 'currentMonthIndex' | 'date' | 'point'>;
 
+/**
+ * Renders the days of a month in a calendar view.
+ *
+ * @component
+ * @param {DaysProps} props - The component props.
+ * @returns {React.ReactElement} The rendered component.
+ */
 const Days = (props: DaysProps): React.ReactElement => {
 	const {
 		activeStartDate,

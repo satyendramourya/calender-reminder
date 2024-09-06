@@ -19,6 +19,25 @@ type TileGroupProps = {
 	valueType: RangeType;
 };
 
+/**
+ * Renders a group of tiles based on the provided props.
+ *
+ * @param className - The CSS class name for the tile group.
+ * @param count - The number of tiles to render.
+ * @param dateTransform - A function that transforms a point into a date.
+ * @param dateType - The type of date to be used.
+ * @param end - The end point for generating tiles.
+ * @param hover - The hover state of the tiles.
+ * @param offset - The offset for the tiles.
+ * @param renderTile - A function that renders a single tile.
+ * @param start - The start point for generating tiles.
+ * @param step - The step value for generating tiles.
+ * @param value - The value of the tiles.
+ * @param valueType - The type of value to be used.
+ * @param cols - The number of columns in the tile group.
+ *
+ * @returns The rendered tile group as a React element.
+ */
 const TileGroup = ({
 	className,
 	count = 3,

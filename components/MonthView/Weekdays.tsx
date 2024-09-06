@@ -18,6 +18,12 @@ type WeekdaysProps = {
 	onMouseLeave?: () => void;
 };
 
+/**
+ * Renders the weekdays for the month view.
+ *
+ * @param props - The component props.
+ * @returns The rendered weekdays component.
+ */
 const Weekdays = (props: WeekdaysProps): React.ReactElement => {
 	const {
 		calendarType,

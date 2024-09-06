@@ -12,6 +12,12 @@ type YearProps = {
 	formatYear?: typeof defaultFormatYear;
 } & Omit<React.ComponentProps<typeof Tile>, 'children' | 'maxDateTransform' | 'minDateTransform' | 'view'>;
 
+/**
+ * Renders a single year tile in the decade view of the calendar component.
+ *
+ * @param {YearProps} props - The props for the Year component.
+ * @returns {React.ReactElement} - The rendered Year component.
+ */
 export default function Year({
 	classes = [],
 	currentDecade,

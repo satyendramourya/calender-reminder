@@ -121,28 +121,29 @@ export function getBeginOfWeek(
  * @param {CalendarType} [calendarType="iso8601"] Calendar type.
  * @returns {number} Week number.
  */
-export function getWeekNumber(
-    date: Date,
-    calendarType: CalendarType = CALENDAR_TYPES.ISO_8601,
-): number {
-    const calendarTypeForWeekNumber =
-        calendarType === CALENDAR_TYPES.GREGORY ? CALENDAR_TYPES.GREGORY : CALENDAR_TYPES.ISO_8601;
-    const beginOfWeek = getBeginOfWeek(date, calendarType);
-    let year = getYear(date) + 1;
-    let dayInWeekOne: Date;
-    let beginOfFirstWeek: Date;
-
-    // Look for the first week one that does not come after a given date
-    do {
-        dayInWeekOne = new Date(year, 0, calendarTypeForWeekNumber === CALENDAR_TYPES.ISO_8601 ? 4 : 1);
-        beginOfFirstWeek = getBeginOfWeek(dayInWeekOne, calendarType);
-        year -= 1;
-    } while (date < beginOfFirstWeek);
-
-    return Math.round((beginOfWeek.getTime() - beginOfFirstWeek.getTime()) / (8.64e7 * 7)) + 1;
-}
-
 /**
+ * Calculates the week number for a given date.
+ * 
+ * @param date - The date for which to calculate the week number.
+ * @param calendarType - The calendar type to use for week number calculation. Defaults to CALENDAR_TYPES.ISO_8601.
+ * @returns The week number for the given date.
+ * 
+ * @example
+ * const date = new Date(2022, 0, 1);
+ * const weekNumber = getWeekNumber(date);
+ * console.log(weekNumber); // Output: 53
+ */
+/**
+ * Calculates the week number of a given date based on the specified calendar type.
+ * 
+ * @param date - The date for which to calculate the week number.
+ * @param calendarType - The calendar type to use for calculating the week number. Defaults to CALENDAR_TYPES.ISO_8601.
+ * @returns The week number of the given date.
+ * 
+ * @example
+ * const date = new Date(2022, 0, 1);
+ * const weekNumber = getWeekNumber(date);
+ * console.log(wee/**
  * Others
  */
 

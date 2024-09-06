@@ -316,6 +316,68 @@ function areDatesEqual(date1?: Date | null, date2?: Date | null) {
 	return date1 instanceof Date && date2 instanceof Date && date1.getTime() === date2.getTime();
 }
 
+/**
+ * Calendar component for displaying and selecting dates.
+ *
+ * @component
+ * @example
+ * ```tsx
+ * <Calendar
+ *   activeStartDate={new Date()}
+ *   allowPartialRange={false}
+ *   calendarType="ISO 8601"
+ *   defaultActiveStartDate={new Date()}
+ *   defaultValue={null}
+ *   defaultView="month"
+ *   formatDay={(date) => date.getDate().toString()}
+ *   formatLongDate={(date) => date.toDateString()}
+ *   formatMonth={(date) => date.toLocaleString('default', { month: 'long' })}
+ *   formatMonthYear={(date) => date.toLocaleString('default', { month: 'long', year: 'numeric' })}
+ *   formatShortWeekday={(date) => date.toLocaleString('default', { weekday: 'short' })}
+ *   formatWeekday={(date) => date.toLocaleString('default', { weekday: 'long' })}
+ *   formatYear={(date) => date.getFullYear().toString()}
+ *   goToRangeStartOnSelect={true}
+ *   inputRef={null}
+ *   locale="en-US"
+ *   maxDate={null}
+ *   maxDetail="month"
+ *   minDate={null}
+ *   minDetail="decade"
+ *   navigationAriaLabel="Calendar navigation"
+ *   navigationAriaLive="assertive"
+ *   navigationLabel={(date, view) => `${date.toLocaleString('default', { month: 'long' })} ${date.getFullYear()}`}
+ *   next2AriaLabel="Next 2 years"
+ *   next2Label=">>"
+ *   nextAriaLabel="Next month"
+ *   nextLabel=">"
+ *   onActiveStartDateChange={(args) => console.log(args)}
+ *   onChange={(value, event) => console.log(value, event)}
+ *   onClickDay={(date, event) => console.log(date, event)}
+ *   onClickMonth={(date, event) => console.log(date, event)}
+ *   onClickWeekNumber={(weekNumber, date, event) => console.log(weekNumber, date, event)}
+ *   onClickYear={(date, event) => console.log(date, event)}
+ *   onDrillDown={(args) => console.log(args)}
+ *   onDrillUp={(args) => console.log(args)}
+ *   onViewChange={(args) => console.log(args)}
+ *   prev2AriaLabel="Previous 2 years"
+ *   prev2Label="<<"
+ *   prevAriaLabel="Previous month"
+ *   prevLabel="<"
+ *   returnValue="start"
+ *   selectRange={false}
+ *   showDoubleView={false}
+ *   showFixedNumberOfWeeks={false}
+ *   showNavigation={true}
+ *   showNeighboringDecade={true}
+ *   showNeighboringMonth={true}
+ *   showWeekNumbers={false}
+ *   tileContent={null}
+ *   tileDisabled={null}
+ *   value={null}
+ *   view={null}
+ * />
+ * ```
+ */
 const Calendar: React.ForwardRefExoticComponent<CalendarProps & React.RefAttributes<unknown>> = forwardRef(
 	function Calendar(props, ref) {
 		const {

@@ -21,6 +21,13 @@ type DayProps = {
 	'children' | 'formatAbbr' | 'maxDateTransform' | 'minDateTransform' | 'view'
 >;
 
+/**
+ * Represents a day in the month view of a calendar.
+ *
+ * @component
+ * @param {DayProps} props - The props for the Day component.
+ * @returns {React.ReactElement} The rendered Day component.
+ */
 const Day = ({
 	calendarType,
 	classes = [],

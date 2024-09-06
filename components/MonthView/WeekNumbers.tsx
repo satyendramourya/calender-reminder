@@ -14,6 +14,12 @@ type WeekNumbersProps = {
 	showFixedNumberOfWeeks?: boolean;
 };
 
+/**
+ * Renders the week numbers for the month view.
+ *
+ * @param {WeekNumbersProps} props - The component props.
+ * @returns {JSX.Element} The rendered WeekNumbers component.
+ */
 const WeekNumbers = (props: WeekNumbersProps) => {
 	const { activeStartDate, calendarType, onClickWeekNumber, onMouseLeave, showFixedNumberOfWeeks } = props;
 

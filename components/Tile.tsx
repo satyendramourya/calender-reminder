@@ -29,6 +29,13 @@ type TileProps = {
 	view: View;
 };
 
+/**
+ * Represents a tile component used in a calendar.
+ *
+ * @component
+ * @param {TileProps} props - The props for the Tile component.
+ * @returns {React.ReactElement} The rendered Tile component.
+ */
 const Tile = (props: TileProps): React.ReactElement => {
 	const {
 		activeStartDate,

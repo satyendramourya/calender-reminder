@@ -11,6 +11,12 @@ type YearsProps = {
 } & Omit<React.ComponentProps<typeof TileGroup>, 'dateTransform' | 'dateType' | 'end' | 'renderTile' | 'start'> &
 	Omit<React.ComponentProps<typeof Year>, 'classes' | 'currentDecade' | 'date'>;
 
+/**
+ * Renders a component that displays a range of years within a decade.
+ *
+ * @param props - The properties for the Years component.
+ * @returns A React element representing the Years component.
+ */
 export default function Years(props: YearsProps): React.ReactElement {
 	const { activeStartDate, hover, showNeighboringDecade, value, valueType, ...otherProps } = props;
 	const start = getBeginOfDecadeYear(activeStartDate);

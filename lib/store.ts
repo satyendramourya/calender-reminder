@@ -28,6 +28,11 @@ export const persistor = persistStore(store)
 
 export type AppDispatch = typeof store.dispatch
 export type RootState = ReturnType<typeof store.getState>
+/**
+ * Represents a type for an asynchronous action creator function that can be used with Redux Thunk middleware.
+ *
+ * @template ReturnType - The return type of the action creator function.
+ */
 export type AppThunk<ReturnType = void> = ThunkAction<
     ReturnType,
     RootState,

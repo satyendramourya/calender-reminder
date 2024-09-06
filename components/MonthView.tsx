@@ -27,6 +27,12 @@ type MonthViewProps = {
 	'calendarType'
 >;
 
+/**
+ * Renders a month view component.
+ *
+ * @param props - The props for the MonthView component.
+ * @returns A React element representing the month view.
+ */
 export default function MonthView(props: MonthViewProps): React.ReactElement {
 	const { activeStartDate, locale, onMouseLeave, showFixedNumberOfWeeks } = props;
 	const {
