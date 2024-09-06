@@ -1,10 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-
+import { RootState } from '@/lib/store';
 
 export interface Reminder {
     id: string
     date: string
     text: string
+    time: string
+    creationTime?: string
 }
 
 interface ReminderState {
@@ -30,6 +32,7 @@ export const reminderSlice = createSlice({
 
 export const { addReminder, removeReminder } = reminderSlice.actions
 
-export const selectReminders = (state: ReminderState): Reminder[] => state.reminders
+export const selectReminders = (state: RootState): Reminder[] => state.reminders.reminders;
+
 
 export default reminderSlice.reducer

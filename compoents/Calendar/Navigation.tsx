@@ -160,6 +160,7 @@ export default function Navigation({
 				justifyContent: 'space-between',
 				width: '100%',
 				margin: '0 auto',
+				maxWidth: '340px',
 			}}
 		>
 			<div>

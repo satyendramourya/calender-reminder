@@ -1,12 +1,12 @@
 
 import { configureStore, ThunkAction, Action, combineReducers } from '@reduxjs/toolkit'
 import storage from 'redux-persist/lib/storage'
-import remindersReducer from './reminder-slice'
+import reminderSlice from './reminder-slice'
 import { persistStore, persistReducer } from 'redux-persist'
 
 // Create a root reducer
 const rootReducer = combineReducers({
-    reminders: remindersReducer,
+    reminders: reminderSlice,
 })
 
 // Persist configuration

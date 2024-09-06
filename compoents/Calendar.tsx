@@ -758,10 +758,13 @@ const Calendar: React.ForwardRefExoticComponent<CalendarProps & React.RefAttribu
 
 		return (
 			<div
-				className={clsx(' flex flex-col gap-10 mx-auto  ', {
+				className={clsx(' flex flex-col gap-10  pr- border-r-2 border-blue-400 ', {
 					' flex-col-reverse': showDoubleView,
 				})}
 				ref={inputRef}
+				style={{
+					paddingRight: '40px',
+				}}
 			>
 				{showNavigation && (
 					<Navigation
@@ -795,7 +798,7 @@ const Calendar: React.ForwardRefExoticComponent<CalendarProps & React.RefAttribu
 					onMouseLeave={selectRange ? onMouseLeave : undefined}
 					style={{
 						display: 'flex',
-						alignItems: 'flex-end',
+						alignItems: 'flex-center',
 						maxWidth: '340px',
 					}}
 				>
