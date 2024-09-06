@@ -18,12 +18,6 @@ type WeekdaysProps = {
 	onMouseLeave?: () => void;
 };
 
-/**
- * Renders the weekdays for the month view.
- *
- * @param props - The component props.
- * @returns The rendered weekdays component.
- */
 const Weekdays = (props: WeekdaysProps): React.ReactElement => {
 	const {
 		calendarType,
@@ -59,7 +53,7 @@ const Weekdays = (props: WeekdaysProps): React.ReactElement => {
 			count={7}
 			onFocus={onMouseLeave}
 			onMouseOver={onMouseLeave}
-			className='font-semibold text-3xl text-blue-400'
+			className='font-semibold text-base text-blue-400'
 		>
 			{weekdays}
 		</Flex>

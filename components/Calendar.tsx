@@ -27,7 +27,7 @@ import type {
 	formatWeekday as defaultFormatWeekday,
 	formatYear as defaultFormatYear,
 } from '../utils/dateFormater';
-import { getBegin, getBeginNext, getEnd, getValueRange } from '@/utils/dates';
+import { getBegin, getBeginNext, getEnd } from '@/utils/dates';
 import { between } from '@/utils/utils';
 import MonthView from './MonthView';
 import clsx from 'clsx';
@@ -656,9 +656,8 @@ const Calendar: React.ForwardRefExoticComponent<CalendarProps & React.RefAttribu
 					// Range selection turned on
 
 					if (isFirstValueInRange) {
-						// Value has 0 or 2 elements - either way we're starting a new array
-						// First value
-						nextValue = getBegin(valueType, rawNextValue);
+						nextValue = rawNextValue;
+						console.log('nextValue', nextValue);
 					} else {
 						if (!previousValue) {
 							throw new Error('previousValue is required');
@@ -669,7 +668,10 @@ const Calendar: React.ForwardRefExoticComponent<CalendarProps & React.RefAttribu
 						}
 
 						// Second value
-						nextValue = getValueRange(valueType, previousValue, rawNextValue);
+						console.log('previousValue', rawNextValue);
+						nextValue = [previousValue, rawNextValue];
+
+						console.log('nextValue', nextValue);
 					}
 				} else {
 					// Range selection turned off
@@ -820,7 +822,7 @@ const Calendar: React.ForwardRefExoticComponent<CalendarProps & React.RefAttribu
 
 		return (
 			<div
-				className={clsx(' flex flex-col gap-10  pr- border-r-2 border-blue-400 ', {
+				className={clsx(' flex flex-col gap-10  ', {
 					' flex-col-reverse': showDoubleView,
 				})}
 				ref={inputRef}
@@ -860,8 +862,10 @@ const Calendar: React.ForwardRefExoticComponent<CalendarProps & React.RefAttribu
 					onMouseLeave={selectRange ? onMouseLeave : undefined}
 					style={{
 						display: 'flex',
+						gap: '20px',
 						alignItems: 'flex-center',
 						maxWidth: '340px',
+						flexDirection: showDoubleView ? 'column' : 'row',
 					}}
 				>
 					{renderContent()}

@@ -22,8 +22,14 @@ export default function Home() {
 	const [selectedDate, setSelectedDate] = useState<Value>(null);
 	const [note, setNote] = useState('');
 	const [time, setTime] = useState('12:00');
+	const [showDoubleView, setShowDoubleView] = useState(false);
+	const [selectRange, setSelectRange] = useState(false);
 
 	const dispatch = useAppDispatch();
+
+	const onChange = (value: Value) => {
+		selectRange && setSelectedDate(value);
+	};
 
 	const reminders = useAppSelector(selectReminders);
 
@@ -50,6 +56,13 @@ export default function Home() {
 		return `${formattedDate}/${formattedTime}`;
 	};
 
+	const formatDateRange = (range: [string, string]) => {
+		const [start, end] = range;
+		const formattedStart = formatDate(new Date(start));
+		const formattedEnd = formatDate(new Date(end));
+		return `${formattedStart}/${formattedEnd}`;
+	};
+
 	const onClickDay = (value: Value) => {
 		setSelectedDate(value);
 	};
@@ -57,9 +70,33 @@ export default function Home() {
 	return (
 		<div className='flex flex-col md:flex-row gap-10 items-center justify-center  max-w-screen-xl mx-auto'>
 			<div className='flex items-center justify-center flex-col gap-10 w-full'>
-				<h1 className='text-xl font-bold mt-[10dvh] text-blue-400'>Calender component</h1>
+				<div className='flex items-center justify-between mt-[10dvh] gap-4'>
+					<h1 className='text-xl font-bold  text-blue-400'>Calender component</h1>
+					<Button
+						variant={showDoubleView ? 'secondary' : 'default'}
+						onClick={() => {
+							setShowDoubleView(!showDoubleView);
+						}}
+					>
+						Double
+					</Button>
+					<Button
+						variant={selectRange ? 'secondary' : 'default'}
+						onClick={() => {
+							setSelectRange(!selectRange);
+						}}
+					>
+						Range
+					</Button>
+				</div>
 
-				<Calendar onClickDay={onClickDay} />
+				<Calendar
+					onClickDay={onClickDay}
+					returnValue='range'
+					showDoubleView={showDoubleView}
+					selectRange={selectRange}
+					onChange={onChange}
+				/>
 
 				<div className='flex gap-2 items-start justify-start max-w-sm mx-auto  flex-col w-full font-semibold text-lg text-blue-400'>
 					<div className='flex gap-4 w-full'>
@@ -68,7 +105,15 @@ export default function Home() {
 							type='text'
 							className='border-none bg-slate-500/20'
 							placeholder='Date'
-							value={selectedDate instanceof Date ? formatDate(selectedDate) : ''}
+							// value={selectedDate instanceof Date ? formatDate(selectedDate) : ''}
+
+							value={
+								selectedDate instanceof Date
+									? formatDate(selectedDate)
+									: Array.isArray(selectedDate)
+									? formatDateRange(selectedDate as unknown as [string, string])
+									: ''
+							}
 						/>
 					</div>
 
@@ -92,10 +137,19 @@ export default function Home() {
 					</div>
 
 					<Button
+						variant={'secondary'}
+						size={'lg'}
+						className='w-full'
 						onClick={() => {
+							if (selectedDate === null || note === '' || time === '') {
+								return;
+							}
 							const reminder = {
 								id: generateRandomId(),
-								date: selectedDate instanceof Date ? formatDate(selectedDate) : '',
+								date:
+									selectedDate instanceof Date
+										? formatDate(selectedDate)
+										: formatDateRange(selectedDate as unknown as [string, string]),
 								text: note,
 								time: time,
 								creationTime: formatDateTime(new Date()),
@@ -121,7 +175,10 @@ export default function Home() {
 							className='grid grid-cols-5 w-full max-w-screen-sm bg-gray-700/20 p-4 rounded-ms  gap-8 items-center justify-between relative border-blue-400 border rounded-md'
 						>
 							<div className='col-span-3 flex flex-col gap-2'>
-								<p className='text-xs '>{reminder.date}</p>
+								<p className='text-xs  font-semibold text-blue-400'>
+									{' '}
+									{reminder.date.includes('/') ? reminder.date.split('/').join(' -- ') : reminder.date}
+								</p>
 								<p className='text-base font-semibold '>{reminder.text}</p>
 							</div>
 							<div className='text-blue-400 font-semibold'>
