@@ -4,7 +4,11 @@ This project is a **calendar management tool** built with **Next.js**. It allows
 
 ## Video Preview
 
-<iframe width="560" height="315" src="./calendar-reminder.mp4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+
+https://github.com/user-attachments/assets/49aa45c5-6081-4a3d-af4d-e998333c14a2
+
+
 
 
 ## Features
