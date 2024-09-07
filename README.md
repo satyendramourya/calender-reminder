@@ -2,6 +2,11 @@
 
 This project is a **calendar management tool** built with **Next.js**. It allows users to create, view, and manage reminders in a calendar format, ensuring they stay organized with important tasks and events.
 
+## Video Preview
+
+<iframe width="560" height="315" src="./calendar-reminder.mp4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+
 ## Features
 - **Create Reminders**: Add reminders with custom details and time.
 - **View Calendar**: See all reminders visually in a calendar.
