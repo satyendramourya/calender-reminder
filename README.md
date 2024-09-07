@@ -1,24 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Calendar Reminder
+
+This project is a **calendar management tool** built with **Next.js**. It allows users to create, view, and manage reminders in a calendar format, ensuring they stay organized with important tasks and events.
+
+## Features
+- **Create Reminders**: Add reminders with custom details and time.
+- **View Calendar**: See all reminders visually in a calendar.
+- **Manage Reminders**: Edit or delete existing reminders.
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+git clone https://github.com/satyendramourya/calender-reminder.git
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Tech Stack
+- **Next.js**:Server-side rendered React framework.
+- **TypeScript**: Strongly-typed JavaScript.
+- **Tailwind CSS**: Utility-first CSS framework.
+- **Redux**: State management.
+
+## How It Works
+- **Create reminders** by clicking on the calendar.
+- **View existing reminders** by navigating through the calendar.
+- **Rremove remindersedux**: when necessary.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+
+## Deployment
+Easily deploy on Vercel. - [`https://calendar-reminder-kohl.vercel.app/`](https://calendar-reminder-kohl.vercel.app/)
 
 ## Learn More
 
